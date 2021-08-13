@@ -1,0 +1,24 @@
+[package]
+name = "aya-test-bpf-ebpf"
+version = "0.1.0"
+edition = "2018"
+
+[dependencies]
+aya-bpf = { git = "http://github.com/alessandrod/aya", branch = "main" }
+aya-test-bpf-common = { path = "../aya-test-bpf-common" }
+aya-bpf-cty = { git = "http://github.com/alessandrod/aya", branch = "main" }
+memoffset = "0.6"
+
+[[bin]]
+name = "aya-test-bpf"
+path = "src/main.rs"
+
+[profile.dev]
+panic = "abort"
+overflow-checks = false
+
+[profile.release]
+panic = "abort"
+
+[workspace]
+members = []

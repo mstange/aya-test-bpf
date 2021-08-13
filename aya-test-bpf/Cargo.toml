@@ -1,0 +1,16 @@
+[package]
+name = "aya-test-bpf"
+version = "0.1.0"
+edition = "2018"
+publish = false
+
+[dependencies]
+aya = { git = "https://github.com/alessandrod/aya", branch="main", features = ["async_tokio"] }
+aya-test-bpf-common = { path = "../aya-test-bpf-common", features=["userspace"] }
+anyhow = "1.0.42"
+bytes = "1"
+tokio = { version = "1.9.0", features = ["full"] }
+
+[[bin]]
+name = "aya-test-bpf"
+path = "src/main.rs"

@@ -1,5 +1,7 @@
 # aya-test-bpf
 
+I'm trying to access `prev->pid` in my `sched_switch` tracepoint handler, but `bpf_probe_read` is returning error code -34.
+
 ## Prerequisites
 
 1. Install a rust stable toolchain: `rustup install stable`
@@ -24,5 +26,5 @@ cargo build
 ## Run
 
 ```bash
-cargo run --package aya-test-bpf --bin aya-test-bpf
+sudo ./target/debug/aya-test-bpf ./target/bpfel-unknown-none/debug/aya-test-bpf
 ```

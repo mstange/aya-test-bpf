@@ -1,6 +1,6 @@
 # aya-test-bpf
 
-I'm trying to access `prev->pid` in my `sched_switch` tracepoint handler, but `bpf_probe_read` is returning error code -34.
+Just playing around with aya.
 
 ## Prerequisites
 
@@ -26,5 +26,5 @@ cargo build
 ## Run
 
 ```bash
-sudo ./target/debug/aya-test-bpf ./target/bpfel-unknown-none/debug/aya-test-bpf
+RUSTFLAGS="-C force-frame-pointers=yes" cargo build --release && cargo xtask build-ebpf --release && sudo ./target/release/aya-test-bpf ./target/bpfel-unknown-none/release/aya-test-bpf
 ```

@@ -22991,6 +22991,19 @@ pub struct autogroup {
     pub nice: ::aya_bpf_cty::c_int,
 }
 #[repr(C)]
+#[derive(Debug)]
+pub struct trace_event_raw_sched_switch {
+    pub ent: trace_entry,
+    pub prev_comm: [::aya_bpf_cty::c_char; 16usize],
+    pub prev_pid: pid_t,
+    pub prev_prio: ::aya_bpf_cty::c_int,
+    pub prev_state: ::aya_bpf_cty::c_long,
+    pub next_comm: [::aya_bpf_cty::c_char; 16usize],
+    pub next_pid: pid_t,
+    pub next_prio: ::aya_bpf_cty::c_int,
+    pub __data: __IncompleteArrayField<::aya_bpf_cty::c_char>,
+}
+#[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct cpuidle_state_usage {
     pub disable: ::aya_bpf_cty::c_ulonglong,
@@ -25145,6 +25158,14 @@ pub struct bpf_verifier_ops {
             arg7: *mut u32_,
         ) -> ::aya_bpf_cty::c_int,
     >,
+}
+pub type bpf_user_pt_regs_t = pt_regs;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct bpf_perf_event_data {
+    pub regs: bpf_user_pt_regs_t,
+    pub sample_period: __u64,
+    pub addr: __u64,
 }
 #[repr(C)]
 #[derive(Copy, Clone)]

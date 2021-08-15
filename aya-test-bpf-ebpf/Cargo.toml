@@ -4,9 +4,9 @@ version = "0.1.0"
 edition = "2018"
 
 [dependencies]
-aya-bpf = { git = "http://github.com/alessandrod/aya", branch = "main" }
+aya-bpf = { path = "../../aya/bpf/aya-bpf" }
 aya-test-bpf-common = { path = "../aya-test-bpf-common" }
-aya-bpf-cty = { git = "http://github.com/alessandrod/aya", branch = "main" }
+aya-bpf-cty = { path = "../../aya/bpf/aya-bpf-cty" }
 memoffset = "0.6"
 
 [[bin]]
